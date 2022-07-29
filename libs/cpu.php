@@ -31,7 +31,11 @@ if ($cpuinfo = shell_exec('cat /proc/cpuinfo'))
                 case 'cpu model':
                 case 'cpu':
                 case 'processor':
-                    $model = $value;
+                case 'model':
+                    if(strlen($model) < strlen($value))
+                    {
+                        $model = $value;
+                    }
                 break;
 
                 case 'cpu mhz':
